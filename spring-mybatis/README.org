@@ -1,0 +1,62 @@
+#+TITLE: Spring + MyBatis + Restful
+
+注册
+#+BEGIN_SRC sh :results drawer
+curl -H "Content-Type: application/json" -X POST -d '{
+    "name": "admin",
+    "password": "password"
+}' http://localhost:9000/user/sign-up
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+{"id":"3cbc6d99-3253-43d5-92ec-f7dc2233dc63"}
+:END:
+
+登陆
+#+BEGIN_SRC sh :results drawer
+curl -i -H "Content-Type: application/json" -X POST -d '{
+    "name": "admin",
+    "password": "password"
+}' http://localhost:9000/login
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+HTTP/1.1 200 
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTUzOTk0MTU2MH0.XHW5AKXzyWEVtfKzAr6H7rO3nN1Lnl4b_g3beVqC0Ovy5y4qEeHISYoo8Q50CoIDz0KdbP_GXd461MWK_rOmwg
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: application/json;charset=ISO-8859-1
+Content-Length: 179
+Date: Thu, 18 Oct 2018 09:32:40 GMT
+
+{"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTUzOTk0MTU2MH0.XHW5AKXzyWEVtfKzAr6H7rO3nN1Lnl4b_g3beVqC0Ovy5y4qEeHISYoo8Q50CoIDz0KdbP_GXd461MWK_rOmwg"}
+:END:
+
+验证
+#+BEGIN_SRC sh :results drawer
+curl -i -H "Content-Type: application/json" \
+     -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTUzOTk0MTU2MH0.XHW5AKXzyWEVtfKzAr6H7rO3nN1Lnl4b_g3beVqC0Ovy5y4qEeHISYoo8Q50CoIDz0KdbP_GXd461MWK_rOmwg" \
+     http://localhost:9000/user
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+HTTP/1.1 200 
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Thu, 18 Oct 2018 09:34:27 GMT
+
+[{"id":"398b80a4-c091-40fc-b9fc-1f464f58532e","name":"admin","password":null,"role":null}]
+:END:

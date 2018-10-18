@@ -1,0 +1,31 @@
+spring:
+  profiles:
+    active: dev
+
+---
+
+spring:
+  profiles: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1/demo?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password:
+server:
+  port: 9000
+
+logging:
+  level:
+    org.lotuc.spring.test.example.springmybatis: DEBUG
+
+mybatis:
+  mapper-locations: classpath:org/lotuc/spring/rest/example/springmybatis/**/*.xml
+
+application:
+  security:
+    jwt:
+      secret: hello
+
+---
+spring:
+  profiles: prod
