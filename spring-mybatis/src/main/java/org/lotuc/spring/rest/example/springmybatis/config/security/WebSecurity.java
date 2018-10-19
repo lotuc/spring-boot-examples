@@ -43,12 +43,23 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         .disable()
         .authorizeRequests()
         .antMatchers("/actuator/**")
+        .hasAuthority("ADMIN")
+        // permit swagger ui resources
+        .antMatchers(
+            HttpMethod.GET,
+            "/v2/api-docs",
+            "/swagger-resources/**",
+            "/swagger-ui.html**",
+            "/webjars/**",
+            "favicon.ico")
         .permitAll()
+        // permit signup
         .antMatchers(HttpMethod.POST, SIGN_UP_URL)
         .permitAll()
         .anyRequest()
         .authenticated()
         .and()
+        // JWT Authentication & Authorization
         .addFilter(
             new JWTAuthenticationFilter(authenticationManager(), securityProperty, objectMapper))
         .addFilter(new JWTAuthorizationFilter(authenticationManager(), securityProperty))
