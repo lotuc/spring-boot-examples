@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
+import java.util.Collection;
+
 @Data
 @Accessors(chain = true)
 @NoArgsConstructor
@@ -13,5 +15,7 @@ public class User {
   String id;
   String name;
   String password;
-  String role;
+  Boolean expired;
+  Boolean locked;
+  Collection<Authority> authorities;
 }

@@ -7,6 +7,7 @@ import org.lotuc.spring.rest.example.springmybatis.service.impl.security.UserDet
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -18,6 +19,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import static org.lotuc.spring.rest.example.springmybatis.constants.ApplicationDefaults.SIGN_UP_URL;
 
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurity extends WebSecurityConfigurerAdapter {
   private ObjectMapper objectMapper;
   private SecurityProperty securityProperty;
@@ -43,7 +45,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         .disable()
         .authorizeRequests()
         .antMatchers("/actuator/**")
-        .hasAuthority("ADMIN")
+        .hasRole("ADMIN")
         // permit swagger ui resources
         .antMatchers(
             HttpMethod.GET,

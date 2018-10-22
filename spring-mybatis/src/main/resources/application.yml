@@ -1,31 +1,48 @@
 spring:
   profiles:
     active: dev
-
+server:
+  port: 9000
+logging:
+  level:
+    root: INFO
+mybatis:
+  mapper-locations: classpath:org/lotuc/spring/rest/example/springmybatis/**/*.xml
+application:
+  security:
+    jwt:
+      secret: hello
 ---
 
 spring:
   profiles: dev
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1/demo?useUnicode=true&characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://127.0.0.1/spring_mybatis_db?useUnicode=true&characterEncoding=utf8&useSSL=false
     username: root
     password:
-server:
-  port: 9000
-
 logging:
   level:
-    org.lotuc.spring.test.example.springmybatis: DEBUG
+    org.lotuc.spring.rest.example.springmybatis: DEBUG
 
-mybatis:
-  mapper-locations: classpath:org/lotuc/spring/rest/example/springmybatis/**/*.xml
+---
 
+spring:
+  profiles: test
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1/spring_mybatis_db?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password:
+logging:
+  level:
+    org.lotuc.spring.rest.example.springmybatis: DEBUG
+
+---
+
+spring:
+  profiles: prod
 application:
   security:
     jwt:
-      secret: hello
-
----
-spring:
-  profiles: prod
+      secret: something more complicated

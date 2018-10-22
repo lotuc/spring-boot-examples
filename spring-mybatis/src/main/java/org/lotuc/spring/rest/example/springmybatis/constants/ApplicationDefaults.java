@@ -2,6 +2,7 @@ package org.lotuc.spring.rest.example.springmybatis.constants;
 
 public interface ApplicationDefaults {
   String SIGN_UP_URL = "/user/sign-up";
+  String JWT_AUTHORITY_CLAIM = "authorities";
 
   interface Security {
     String tokenHeader = "Authorization";

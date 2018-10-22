@@ -3,9 +3,13 @@ package org.lotuc.spring.rest.example.springmybatis.controller.security;
 import org.lotuc.spring.rest.example.springmybatis.controller.to.Resource;
 import org.lotuc.spring.rest.example.springmybatis.domain.security.User;
 import org.lotuc.spring.rest.example.springmybatis.repository.security.UserRepository;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import java.security.Principal;
 import java.util.Collection;
 import java.util.UUID;
 
@@ -30,7 +34,18 @@ public class UserController {
   }
 
   @GetMapping
+  @PreAuthorize("hasRole('ADMIN')")
   public Collection<User> getList() {
     return userRepository.findAll();
+  }
+
+  @GetMapping("/{name}")
+  @PreAuthorize("hasRole('ADMIN') or hasRole('CLIENT')")
+  public User getDetail(
+      @PathVariable("name") String name, HttpServletRequest request, Principal principal) {
+    if (request.isUserInRole("CLIENT") && !name.equals(principal.getName())) {
+      throw new AccessDeniedException("Resource not available");
+    }
+    return userRepository.findByName(name, false);
   }
 }
