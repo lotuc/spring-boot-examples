@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.lotuc.spring.rest.example.springmybatis.domain.security.User;
 import org.lotuc.spring.rest.example.springmybatis.repository.security.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -31,7 +30,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
       "classpath:repository/test_user_and_authorities.sql"
     })
 @AutoConfigureMockMvc
-public class UserControllerTest {
+public class UserResourceTest {
   @Autowired private MockMvc mockMvc;
   @Autowired private ObjectMapper objectMapper;
   @Autowired BCryptPasswordEncoder bCryptPasswordEncoder;

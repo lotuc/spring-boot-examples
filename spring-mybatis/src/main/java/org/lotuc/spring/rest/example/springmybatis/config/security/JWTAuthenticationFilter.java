@@ -4,7 +4,7 @@ import com.auth0.jwt.JWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.lotuc.spring.rest.example.springmybatis.config.properties.SecurityProperty;
-import org.lotuc.spring.rest.example.springmybatis.domain.security.User;
+import org.lotuc.spring.rest.example.springmybatis.controller.security.User;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;

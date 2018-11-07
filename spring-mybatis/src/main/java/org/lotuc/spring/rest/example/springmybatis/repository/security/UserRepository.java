@@ -4,8 +4,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.lotuc.spring.rest.example.springmybatis.domain.security.Authority;
-import org.lotuc.spring.rest.example.springmybatis.domain.security.User;
+import org.lotuc.spring.rest.example.springmybatis.controller.security.Authority;
+import org.lotuc.spring.rest.example.springmybatis.controller.security.User;
 import org.springframework.stereotype.Component;
 
 import java.util.Collection;

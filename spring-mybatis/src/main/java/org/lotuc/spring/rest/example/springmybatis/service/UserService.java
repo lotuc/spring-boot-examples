@@ -1,6 +1,6 @@
 package org.lotuc.spring.rest.example.springmybatis.service;
 
-import org.lotuc.spring.rest.example.springmybatis.domain.security.User;
+import org.lotuc.spring.rest.example.springmybatis.controller.security.User;
 import org.lotuc.spring.rest.example.springmybatis.repository.security.UserRepository;
 import org.springframework.stereotype.Service;
 

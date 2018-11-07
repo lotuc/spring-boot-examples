@@ -47,7 +47,7 @@ public class SwaggerConfig {
         .directModelSubstitute(LocalDate.class, String.class)
         .securityContexts(newArrayList(securityContext()))
         .securitySchemes(newArrayList(apiKey()))
-        .enableUrlTemplating(true);
+        .enableUrlTemplating(false);
   }
 
   private ApiKey apiKey() {

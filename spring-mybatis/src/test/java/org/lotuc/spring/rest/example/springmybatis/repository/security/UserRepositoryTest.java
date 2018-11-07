@@ -2,8 +2,8 @@ package org.lotuc.spring.rest.example.springmybatis.repository.security;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.lotuc.spring.rest.example.springmybatis.domain.security.Authority;
-import org.lotuc.spring.rest.example.springmybatis.domain.security.User;
+import org.lotuc.spring.rest.example.springmybatis.controller.security.Authority;
+import org.lotuc.spring.rest.example.springmybatis.controller.security.User;
 import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;

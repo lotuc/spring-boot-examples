@@ -34,14 +34,14 @@
     <update id="setPassword">
         UPDATE user SET password=#{password} WHERE name=#{name}
     </update>
-    <resultMap id="user" type="org.lotuc.spring.rest.example.springmybatis.domain.security.User">
+    <resultMap id="user" type="org.lotuc.spring.rest.example.springmybatis.controller.security.User">
         <id property="id" column="id"/>
         <result property="name" column="name"/>
         <result property="password" column="password"/>
         <result property="expired" column="expired"/>
         <result property="locked" column="locked"/>
         <collection property="authorities"
-                    ofType="org.lotuc.spring.rest.example.springmybatis.domain.security.Authority">
+                    ofType="org.lotuc.spring.rest.example.springmybatis.controller.security.Authority">
             <id property="name" column="auth_name"/>
         </collection>
     </resultMap>

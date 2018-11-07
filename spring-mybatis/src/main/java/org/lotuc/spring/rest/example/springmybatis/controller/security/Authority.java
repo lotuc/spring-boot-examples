@@ -1,4 +1,4 @@
-package org.lotuc.spring.rest.example.springmybatis.domain.security;
+package org.lotuc.spring.rest.example.springmybatis.controller.security;
 
 import lombok.Data;
 import lombok.experimental.Accessors;

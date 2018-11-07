@@ -1,7 +1,6 @@
 package org.lotuc.spring.rest.example.springmybatis.controller.security;
 
-import org.lotuc.spring.rest.example.springmybatis.controller.to.Resource;
-import org.lotuc.spring.rest.example.springmybatis.domain.security.User;
+import org.lotuc.spring.rest.example.springmybatis.controller.common.Resource;
 import org.lotuc.spring.rest.example.springmybatis.repository.security.UserRepository;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -15,12 +14,11 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/user")
-public class UserController {
+public class UserResource {
   private BCryptPasswordEncoder bCryptPasswordEncoder;
   private UserRepository userRepository;
 
-  public UserController(
-      BCryptPasswordEncoder bCryptPasswordEncoder, UserRepository userRepository) {
+  public UserResource(BCryptPasswordEncoder bCryptPasswordEncoder, UserRepository userRepository) {
     this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     this.userRepository = userRepository;
   }

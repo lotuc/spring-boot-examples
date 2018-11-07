@@ -1,7 +1,7 @@
 package org.lotuc.spring.rest.example.springmybatis.service.impl.security;
 
 import lombok.extern.slf4j.Slf4j;
-import org.lotuc.spring.rest.example.springmybatis.domain.security.User;
+import org.lotuc.spring.rest.example.springmybatis.controller.security.User;
 import org.lotuc.spring.rest.example.springmybatis.repository.security.UserRepository;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

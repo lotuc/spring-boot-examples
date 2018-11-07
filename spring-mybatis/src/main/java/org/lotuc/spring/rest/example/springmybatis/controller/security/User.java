@@ -1,4 +1,4 @@
-package org.lotuc.spring.rest.example.springmybatis.domain.security;
+package org.lotuc.spring.rest.example.springmybatis.controller.security;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
@@ -13,9 +13,14 @@ import java.util.Collection;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class User {
   String id;
+
   String name;
+
   String password;
+
   Boolean expired;
+
   Boolean locked;
+
   Collection<Authority> authorities;
 }
